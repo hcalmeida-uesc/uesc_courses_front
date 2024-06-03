@@ -1,6 +1,6 @@
-import './assets/main.css'
+import './assets/default.css'
 
 import { createApp } from 'vue'
-import App from './App.vue'
+import App from './ColcicApi.vue'
 
 createApp(App).mount('#app')
