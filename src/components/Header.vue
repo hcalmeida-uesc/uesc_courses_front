@@ -1,3 +1,7 @@
+<script setup>
+import { RouterLink } from 'vue-router'  
+</script>
+
 <template>
    <header>
 			<div class="wrapper">
@@ -5,13 +9,13 @@
 					<a class="logo" href="./">
 						<img src="/src/assets/logo.png" alt="Logo COLCIC" />
 					</a>
-					<div class="navList">
+					<nav class="navList">
 						<ul>
-                     <a href="./" >Início</a>
-                     <a href="./" >Documentação</a>
-							<a href="./">Contato</a>
+                     <RouterLink to="/">Início</RouterLink>
+                     <a href="./docs">Documentação</a>
+							<a href="https://colcic.uesc.br/contato">Contato</a>
 						</ul>
-					</div>
+					</nav>
 				</div>
 			</div>
 			<div id="top"></div>
@@ -84,7 +88,8 @@
    }
 
    header .navList ul li,
-   header .navList ul a {
+   header .navList ul a
+   {
       flex: 1;
       width: 100%;
       padding: 10px 20px;
@@ -98,13 +103,15 @@
    }
 
    header .navList ul li:hover:not(.dropdown),
-   header .navList ul a:hover:not(.dropdown) {
+   header .navList ul a:hover:not(.dropdown)
+   {
       background: var(--primary-color-hover);
       color: #fff;
    }
 
    header .navList ul li[active]:not(.dropdown),
-   header .navList ul a[active]:not(.dropdown) {
+   header .navList ul a[active]:not(.dropdown)
+   {
       background: var(--primary-color);
       color: #fff;
    }
@@ -115,7 +122,8 @@
 
    header .navList ul li:hover:not(.dropdown) > *,
    header .navList ul a:hover:not(.dropdown) > *,
-   header .navList ul li[active]:not(.dropdown) > * {
+   header .navList ul li[active]:not(.dropdown) > *
+   {
       color: #fff;
    }
 
@@ -160,7 +168,8 @@
       max-height: 500px;
    }
 
-   header .navList ul li.dropdown ul a[active] {
+   header .navList ul li.dropdown ul a[active]
+   {
       background: var(--primary-color);
       color: #fff;
       font-weight: bold;
@@ -255,7 +264,8 @@
          box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
       }
 
-      header .navList ul li.dropdown ul a {
+      header .navList ul li.dropdown ul a
+      {
          padding: 10px 30px;
       }
    }
