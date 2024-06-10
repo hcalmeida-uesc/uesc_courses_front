@@ -2,7 +2,7 @@
 export default {
 	data() {
 		return {
-			pedagogicProjects: []
+			pedagogicProjects: null
 		}
 	},
 	methods: {
@@ -10,7 +10,7 @@ export default {
 			try
 			{
 				const res = await fetch(`http://localhost:5142/courses/1/pedagogicProjects`)
-				const data = res.json()
+				const data = await res.json()
 
 				console.log(data)
 
