@@ -1,3 +1,7 @@
+<script setup>
+import MainContent from '../components/PageMainContent.vue';
+</script>
+
 <template>
    <main>
       <section>
@@ -19,6 +23,7 @@
             </div>
          </div>
       </section>
+      <MainContent />
    </main>
 </template>
 
