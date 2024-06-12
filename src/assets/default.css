@@ -96,3 +96,59 @@ section[variant] {
 .displayNone{
 	display: none !important;
 }
+
+/* Buttons */
+
+.PrimaryButton {
+	display: block;
+	background: var(--primary-color);
+	width: max-content;
+	color: #fff;
+	font-size: 1.2em;
+	font-weight: bold;
+	padding: 0.5em 1em;
+	border-radius: 0.5em;
+	cursor: pointer;
+	transition: all 300ms ease-out;
+	text-decoration: none;
+}
+
+.PrimaryButton:hover {
+	background: var(--primary-color-hover);
+}
+
+.PrimaryButton:disabled {
+	cursor: not-allowed;
+	opacity: 0.5;
+}
+
+.PrimaryButton:disabled:hover {
+	background: var(--primary-color);
+}
+
+.SecondaryButton {
+	display: block;
+	background: var(--secondary-color);
+	width: max-content;
+	color: #000;
+	font-size: 1.2em;
+	font-weight: bold;
+	padding: 0.5em 1em;
+	border-radius: 0.5em;
+	cursor: pointer;
+	transition: all 300ms ease-out;
+	text-decoration: none;
+}
+
+.SecondaryButton:hover {
+	background: var(--secondary-color-hover);
+}
+
+.SecondaryButton:disabled {
+	cursor: not-allowed;
+	opacity: 0.5;
+}
+
+.SecondaryButton:disabled:hover {
+	background: var(--secondary-color);
+}

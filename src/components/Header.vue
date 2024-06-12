@@ -12,8 +12,8 @@ import { RouterLink } from 'vue-router'
 					<nav class="navList">
 						<ul>
                      <RouterLink to="/">Início</RouterLink>
-                     <RouterLink to="./docs">Documentação</RouterLink>
-							<a href="https://colcic.uesc.br/contato">Contato</a>
+                     <RouterLink to="./docs">PPCs</RouterLink>
+							<RouterLink to="./login">Login</RouterLink>
 						</ul>
 					</nav>
 				</div>
