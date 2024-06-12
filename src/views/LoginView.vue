@@ -1,3 +1,64 @@
+<script>
+	export default {
+		data() {
+			return {
+				msg: '',
+				login: '',
+				password: '',
+			};
+		},
+		methods: {
+			checkLogin: async function(e){
+				//todo: check login
+				
+				e.preventDefault();
+				if(this.login && this.password){
+					this.msg = 'Autenticando...';
+					setTimeout(async () => {
+						await this.authUser();
+						return true;
+						
+					}, 2000);
+				}
+					
+			},
+			authUser: async function () {
+				const location = window.location.hostname;
+				const settings = {
+					method: 'POST',
+					headers: {
+							Accept: 'application/json',
+							'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({
+						login: this.login,
+						password: this.password,
+					}),
+				};
+				try {
+					const fetchResponse = await fetch('http://localhost:5142/auth/login', settings);
+					const data = await fetchResponse.json();
+					console.log(data);
+					if(data.token){
+						this.msg = 'Usuário autenticado! Redirecionando...'
+						localStorage.setItem('token', data.token);
+						setTimeout(() => {
+							// Code to be executed after 3 seconds
+							this.$router.push('/');
+						}, 3000);
+					}
+					else{
+						this.msg = 'Usuário não autenticado! Verifique os dados e tente novamente.'
+					}
+				} catch (e) {
+					return e;
+				}    
+
+			}
+		},
+	};
+</script>
+
 <template>
    <section>
       <div class="MaxWidthWrapper">
@@ -6,18 +67,28 @@
                <img src="/src/assets/contact.png" alt="" />
             </div>
             <div class="mainContent">
-               <h1>Autenticar usuário</h1>
-               <form action="">
+               <h1>Autenticar usuário </h1>
+					<h3 v-if="msg">{{ msg }}</h3>
+               <form 
+					id="loginForm"
+					@submit="checkLogin"
+					action="">
                   <input
+							v-model="login"
                      type="email"
                      placeholder="Login/Email *"
                      required
                   />
-                  <input type="password" placeholder="Senha" />
+                  <input
+							v-model="password"
+							type="password"
+							placeholder="Senha *"
+							required
+						/>
                   <button
                      type="submit"
                      class="PrimaryButton"
-                     disabled
+                     
                   >
                      Enviar
                   </button>
@@ -56,6 +127,10 @@
 
 .mainContent h1 {
 	font-size: 2em;
+}
+
+.mainContent h3 {
+	color: red;
 }
 
 .mainContent form {
